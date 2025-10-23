@@ -2,4 +2,7 @@
 
 export(check_version)
 export(download_protoc)
+export(find_go)
+export(generate_go_from_proto)
 export(get_protoc_version)
+export(install_protoc_gen_go)
