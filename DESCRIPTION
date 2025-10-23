@@ -8,5 +8,6 @@ License: MIT + file LICENSE
 Imports:
     utils
 Encoding: UTF-8
+SystemRequirements: Go (https://golang.org/dl/) for installing protoc-gen-go
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
