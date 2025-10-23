@@ -1,6 +1,6 @@
 Package: protoc
 Title: Download `protoc` Binaries of Specified Versions
-Version: 0.0.0.9000
+Version: 0.1.1
 Authors@R: 
     person(given = "Sounkou Mahamane", family = "Toure" , email = "sounkoutoure@gmail.com", role = c("aut", "cre"))
 Description: This package provides a function to download precompiled `protoc` binaries for specified versions.
