@@ -37,7 +37,7 @@ download_protoc <- function(
         url = paste0(base_url, file_name),
         destfile = file.path(destdir, file_name)
     )
-    unzip(
+    utils::unzip(
         zipfile = file.path(destdir, file_name),
         files = bin_file_name_extract(),
         exdir = destdir
