@@ -8,6 +8,9 @@ This package provides functions to download `protoc` and `protoc-go-gen`
 binaries and generate Go code from `.proto` files. This should be useful
 for R developers working with Protocol Buffers and Go.
 
+For more information about Go support for Protocol Buffers, see the
+[golang/protobuf GitHub repository](https://github.com/golang/protobuf).
+
 # Download and Usage
 
 ``` r
@@ -26,8 +29,6 @@ stopifnot(actual_version == "33.0")
 # Check version using check_version (will error if mismatch)
 check_version(protoc_path, "33.0")
 #> [1] TRUE
-cat("protoc 33.0 downloaded and verified successfully\n")
-#> protoc 33.0 downloaded and verified successfully
 
 # Use a temp directory for all test artifacts
 tmp_dir <- tempdir()
@@ -38,8 +39,6 @@ dir.create(custom_pggo_dir, showWarnings = FALSE)
 pggo_exe <- install_protoc_gen_go(version = "latest", out_path = file.path(custom_pggo_dir, "protoc-gen-go"))
 #> go: google.golang.org/protobuf@v1.36.10 requires go >= 1.23; switching to go1.24.9
 stopifnot(file.exists(pggo_exe))
-cat("protoc-gen-go installed at ", pggo_exe, "\n")
-#> protoc-gen-go installed at  /tmp/RtmpRGs7OK/pggo_bin/protoc-gen-go
 Sys.setenv(PATH = paste(custom_pggo_dir, Sys.getenv("PATH"), sep = .Platform$path.sep))
 
 # Generate Go code from a .proto file
@@ -61,9 +60,7 @@ go_file <- generate_go_from_proto(proto_file, go_out_dir, protoc_path = protoc_p
 #> 
 #> Warning in generate_go_from_proto(proto_file, go_out_dir, protoc_path =
 #> protoc_path): Go file was not generated at
-#> /tmp/RtmpRGs7OK/go_out/test/test.pb.go
+#> /tmp/Rtmp8IZ4I6/go_out/test/test.pb.go
 go_file <- file.path(go_out_dir, "github.com", "example", "testpb", "test.pb.go")
 stopifnot(file.exists(go_file))
-cat("Go file generated at ", go_file, "\n")
-#> Go file generated at  /tmp/RtmpRGs7OK/go_out/github.com/example/testpb/test.pb.go
 ```

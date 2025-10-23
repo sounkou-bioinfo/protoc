@@ -15,6 +15,8 @@ knitr::opts_chunk$set(
 
 This package provides functions to download `protoc` and `protoc-go-gen` binaries and generate Go code from `.proto` files. This should be useful for R developers working with Protocol Buffers and Go.
 
+For more information about Go support for Protocol Buffers, see the [golang/protobuf GitHub repository](https://github.com/golang/protobuf).
+
 # Download and Usage
 
 ```{r, echo=TRUE}
@@ -32,7 +34,6 @@ stopifnot(actual_version == "33.0")
 
 # Check version using check_version (will error if mismatch)
 check_version(protoc_path, "33.0")
-cat("protoc 33.0 downloaded and verified successfully\n")
 
 # Use a temp directory for all test artifacts
 tmp_dir <- tempdir()
@@ -42,7 +43,6 @@ custom_pggo_dir <- file.path(tmp_dir, "pggo_bin")
 dir.create(custom_pggo_dir, showWarnings = FALSE)
 pggo_exe <- install_protoc_gen_go(version = "latest", out_path = file.path(custom_pggo_dir, "protoc-gen-go"))
 stopifnot(file.exists(pggo_exe))
-cat("protoc-gen-go installed at ", pggo_exe, "\n")
 Sys.setenv(PATH = paste(custom_pggo_dir, Sys.getenv("PATH"), sep = .Platform$path.sep))
 
 # Generate Go code from a .proto file
@@ -63,5 +63,4 @@ protoc_path <- download_protoc("33.0")
 go_file <- generate_go_from_proto(proto_file, go_out_dir, protoc_path = protoc_path)
 go_file <- file.path(go_out_dir, "github.com", "example", "testpb", "test.pb.go")
 stopifnot(file.exists(go_file))
-cat("Go file generated at ", go_file, "\n")
 ```
