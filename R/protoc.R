@@ -5,8 +5,10 @@ defaultDownloadVersion <- function() {
 }
 
 #' Download precompiled protoc binaries
-#'' This function downloads precompiled `protoc` binaries for a specified version.
+#'
+#' This function downloads precompiled `protoc` binaries for a specified version.
 #' @param version A character string specifying the version of `protoc` to download. Default is "33.0".
+#' @param dest_file_path The destination file path for the downloaded protoc binary. Default is the extracted binary name.
 #' @return The path to the downloaded `protoc` binary.
 #' @examples
 #' \dontrun{
@@ -31,7 +33,7 @@ download_protoc <- function(
     } else {
         file_name <- sprintf(get_windows_format(), version)
     }
-    download.file(
+    utils::download.file(
         url = paste0(base_url, file_name),
         destfile = file.path(destdir, file_name)
     )

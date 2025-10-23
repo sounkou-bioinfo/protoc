@@ -1,0 +1,51 @@
+
+R version 4.5.1 (2025-06-13) -- "Great Square Root"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> # Load the package
+> library(protoc)
+> 
+> # Download protoc version 33.0
+> protoc_path <- download_protoc("33.0")
+trying URL 'https://github.com/protocolbuffers/protobuf/releases/download/v33.0/protoc-33.0-linux-x86_64.zip'
+Content type 'application/octet-stream' length 3560761 bytes (3.4 MB)
+==================================================
+downloaded 3.4 MB
+
+> 
+> # Check that the file exists
+> if (!file.exists(protoc_path)) stop("protoc binary was not downloaded.")
+> 
+> # Check the version
+> actual_version <- get_protoc_version(protoc_path)
+> if (actual_version != "33.0") {
++     stop(sprintf("Expected version 33.0 but got %s", actual_version))
++ }
+> 
+> # Check version using check_version (will error if mismatch)
+> check_version(protoc_path, "33.0")
+[1] TRUE
+> 
+> cat("protoc 33.0 downloaded and verified successfully\n")
+protoc 33.0 downloaded and verified successfully
+> 
+> # Use a temp directory for all test artifacts
+> tmp_dir <- tempdir()
+> 
+> # Install protoc-gen-go to a custom path and add to PATH
+> custom_pggo_dir <- file.path(tmp_dir, "pggo_bin")
+> dir.create(custom_pggo_dir, showWarnings = FALSE)
+> pggo_exe <- install_protoc_gen_go(version = "latest", out_path = file.path(custom_pggo_dir, "protoc-gen-go"))

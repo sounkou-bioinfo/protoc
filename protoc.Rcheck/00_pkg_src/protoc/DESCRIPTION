@@ -1,0 +1,15 @@
+Package: protoc
+Title: Download `protoc` Binaries of Specified Versions
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Sounkou Mahamane", family = "Toure" , email = "sounkoutoure@gmail.com", role = c("aut", "cre"))
+Description: This package provides a function to download precompiled `protoc` binaries for specified versions.
+License: MIT + file LICENSE
+Imports: utils
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+NeedsCompilation: no
+Packaged: 2025-10-23 22:14:49 UTC; sounkoutoure
+Author: Sounkou Mahamane Toure [aut, cre]
+Maintainer: Sounkou Mahamane Toure <sounkoutoure@gmail.com>

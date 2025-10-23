@@ -1,0 +1,6 @@
+check_version	check_version
+download_protoc	download_protoc
+find_go	find_go
+generate_go_from_proto	generate_go_from_proto
+get_protoc_version	get_protoc_version
+install_protoc_gen_go	install_protoc_gen_go

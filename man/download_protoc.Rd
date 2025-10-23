@@ -2,8 +2,7 @@
 % Please edit documentation in R/protoc.R
 \name{download_protoc}
 \alias{download_protoc}
-\title{Download precompiled protoc binaries
-' This function downloads precompiled \code{protoc} binaries for a specified version.}
+\title{Download precompiled protoc binaries}
 \usage{
 download_protoc(
   version = defaultDownloadVersion(),
@@ -12,13 +11,14 @@ download_protoc(
 }
 \arguments{
 \item{version}{A character string specifying the version of \code{protoc} to download. Default is "33.0".}
+
+\item{dest_file_path}{The destination file path for the downloaded protoc binary. Default is the extracted binary name.}
 }
 \value{
 The path to the downloaded \code{protoc} binary.
 }
 \description{
-Download precompiled protoc binaries
-' This function downloads precompiled \code{protoc} binaries for a specified version.
+This function downloads precompiled \code{protoc} binaries for a specified version.
 }
 \examples{
 \dontrun{

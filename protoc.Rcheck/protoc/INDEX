@@ -1,0 +1,10 @@
+check_version           Check protoc version ' This function checks if
+                        the installed 'protoc' binary matches the
+                        expected version.
+download_protoc         Download precompiled protoc binaries
+find_go                 Find the Go executable
+generate_go_from_proto
+                        Generate Go code from a proto file
+get_protoc_version      Get protoc version ' This function retrieves
+                        the version of the installed 'protoc' binary.
+install_protoc_gen_go   Install protoc-gen-go plugin
