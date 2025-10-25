@@ -11,7 +11,7 @@ for R developers working with Protocol Buffers and Go.
 For more information about Go support for Protocol Buffers, see the
 [golang/protobuf GitHub repository](https://github.com/golang/protobuf).
 
-# Download and Usage
+## Usage
 
 ``` r
 library(protoc)
@@ -60,7 +60,17 @@ go_file <- generate_go_from_proto(proto_file, go_out_dir, protoc_path = protoc_p
 #> 
 #> Warning in generate_go_from_proto(proto_file, go_out_dir, protoc_path =
 #> protoc_path): Go file was not generated at
-#> /tmp/Rtmp8IZ4I6/go_out/test/test.pb.go
+#> /tmp/RtmpjYkWN7/go_out/test/test.pb.go
 go_file <- file.path(go_out_dir, "github.com", "example", "testpb", "test.pb.go")
 stopifnot(file.exists(go_file))
 ```
+
+## LLM Usage Disclosure
+
+Code and documentation in this project have been generated with the
+assistance of the github Copilot LLM tools. While we have reviewed and
+edited the generated content, we acknowledge that LLM tools were used in
+the creation process and accordingly (since these models are trained on
+GPL code and other commons + proprietary software license is fake
+anyway) the code is released under GPL-3. So if you use this code in any
+way, you must comply with the GPL-3 license.
